@@ -1,5 +1,8 @@
+From this page
+
 https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
 
+```bash
 fintecheando@localhost ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 [sudo] password for fintecheando: 
 Complementos cargados:fastestmirror
@@ -308,3 +311,4 @@ Grabando a: “openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.
 2018-02-19 18:48:09 (1.00 MB/s) - “openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.tar.gz” guardado [43775984/43775984]
 
 [fintecheando@localhost ~]$ 
+```
