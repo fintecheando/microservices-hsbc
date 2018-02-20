@@ -438,4 +438,107 @@ Trying 127.0.0.1...
 Connected to localhost.
 Escape character is '^]'.
 
+[fintecheando@localhost ~]$ sudo yum -y install epel-release
+[sudo] password for fintecheando: 
+Complementos cargados:fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.cenac.ipn.mx
+ * extras: mirror.cenac.ipn.mx
+ * updates: mirror.cenac.ipn.mx
+Resolviendo dependencias
+--> Ejecutando prueba de transacción
+---> Paquete epel-release.noarch 0:7-9 debe ser instalado
+--> Resolución de dependencias finalizada
+
+Dependencias resueltas
+
+======================================================================================================================
+ Package                          Arquitectura               Versión                 Repositorio                Tamaño
+======================================================================================================================
+Instalando:
+ epel-release                     noarch                     7-9                     extras                      14 k
+
+Resumen de la transacción
+======================================================================================================================
+Instalar  1 Paquete
+
+Tamaño total de la descarga: 14 k
+Tamaño instalado: 24 k
+Downloading packages:
+epel-release-7-9.noarch.rpm                                                                    |  14 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Instalando    : epel-release-7-9.noarch                                                                         1/1 
+  Comprobando   : epel-release-7-9.noarch                                                                         1/1 
+
+Instalado:
+  epel-release.noarch 0:7-9                                                                                           
+
+¡Listo!
+[fintecheando@localhost ~]$ sudo yum -y install htop
+Complementos cargados:fastestmirror
+epel/x86_64/metalink                                                                           |  15 kB  00:00:00     
+epel                                                                                           | 4.7 kB  00:00:00     
+(1/3): epel/x86_64/group_gz                                                                    | 266 kB  00:00:00     
+epel/x86_64/primary_db         FAILED                                          
+https://muug.ca/mirror/fedora-epel/7/x86_64/repodata/f20ae0e31677136786c78749dd0a2e5af8ad5e600de332a838b4985f5887c074-primary.sqlite.bz2: [Errno 14] HTTPS Error 404 - Not Found
+Intentando con otro espejo.
+To address this issue please refer to the below wiki article 
+
+https://wiki.centos.org/yum-errors
+
+If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+
+(2/3): epel/x86_64/updateinfo                                                                  | 892 kB  00:00:02     
+(3/3): epel/x86_64/primary_db                                                                  | 6.2 MB  00:00:04     
+Loading mirror speeds from cached hostfile
+ * base: mirror.cenac.ipn.mx
+ * epel: mirror.steadfast.net
+ * extras: mirror.cenac.ipn.mx
+ * updates: mirror.cenac.ipn.mx
+Resolviendo dependencias
+--> Ejecutando prueba de transacción
+---> Paquete htop.x86_64 0:2.0.2-1.el7 debe ser instalado
+--> Resolución de dependencias finalizada
+
+Dependencias resueltas
+
+======================================================================================================================
+ Package                  Arquitectura               Versión                           Repositorio              Tamaño
+======================================================================================================================
+Instalando:
+ htop                     x86_64                     2.0.2-1.el7                       epel                      98 k
+
+Resumen de la transacción
+======================================================================================================================
+Instalar  1 Paquete
+
+Tamaño total de la descarga: 98 k
+Tamaño instalado: 207 k
+Downloading packages:
+advertencia:/var/cache/yum/x86_64/7/epel/packages/htop-2.0.2-1.el7.x86_64.rpm: EncabezadoV3 RSA/SHA256 Signature, ID de clave 352c64e5: NOKEY
+No se ha instalado la llave pública de htop-2.0.2-1.el7.x86_64.rpm 
+htop-2.0.2-1.el7.x86_64.rpm                                                                    |  98 kB  00:00:00     
+Obteniendo clave desde file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importando llave GPG 0x352C64E5:
+ Usuarioid  : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Huella       : 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Paquete    : epel-release-7-9.noarch (@extras)
+ Desde      : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Instalando    : htop-2.0.2-1.el7.x86_64                                                                         1/1 
+  Comprobando   : htop-2.0.2-1.el7.x86_64                                                                         1/1 
+
+Instalado:
+  htop.x86_64 0:2.0.2-1.el7                                                                                           
+
+¡Listo!
+[fintecheando@localhost ~]$ 
+
+
 ```
