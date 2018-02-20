@@ -340,13 +340,30 @@ drwx------. 3 fintecheando fintecheando       186 feb 19 19:00 ..
 -rw-r--r--. 1 fintecheando fintecheando     10759 ene 17 15:30 LICENSE
 -rwxr-xr-x. 1 fintecheando fintecheando 215733952 ene 17 15:30 oc
 -rw-r--r--. 1 fintecheando fintecheando     17723 ene 17 15:30 README.md
-[fintecheando@localhost openshift-origin]$ ./oc cluster up
-[fintecheando@localhost openshift-origin]$ ./oc cluster up
+[fintecheando@localhost ~]$ vi .bashrc 
+[fintecheando@localhost ~]$ cat .bashrc 
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+export PATH=$PATH:/home/fintecheando/openshift-origin
+# User specific aliases and functions
+
+[fintecheando@localhost ~]$ . .bashrc 
+[fintecheando@localhost ~]$ oc cluster up --metrics
 Starting OpenShift using openshift/origin:v3.9.0-alpha.3 ...
 OpenShift server started.
 
 The server is accessible via web console at:
     https://127.0.0.1:8443
+
+The metrics service is available at:
+    https://hawkular-metrics-openshift-infra.127.0.0.1.nip.io/hawkular/metrics
 
 You are logged in as:
     User:     developer
@@ -355,5 +372,53 @@ You are logged in as:
 To login as administrator:
     oc login -u system:admin
 
-[fintecheando@localhost openshift-origin]$ 
+[fintecheando@localhost ~]$ telnet localhost 8443
+-bash: telnet: no se encontró la orden
+[fintecheando@localhost ~]$ sudo yum install telnet
+[sudo] password for fintecheando: 
+Complementos cargados:fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.cenac.ipn.mx
+ * extras: mirror.cenac.ipn.mx
+ * updates: mirror.cenac.ipn.mx
+Resolviendo dependencias
+--> Ejecutando prueba de transacción
+---> Paquete telnet.x86_64 1:0.17-64.el7 debe ser instalado
+--> Resolución de dependencias finalizada
+
+Dependencias resueltas
+
+======================================================================================================================
+ Package                   Arquitectura              Versión                            Repositorio             Tamaño
+======================================================================================================================
+Instalando:
+ telnet                    x86_64                    1:0.17-64.el7                      base                     64 k
+
+Resumen de la transacción
+======================================================================================================================
+Instalar  1 Paquete
+
+Tamaño total de la descarga: 64 k
+Tamaño instalado: 113 k
+Is this ok [y/d/N]: y
+Downloading packages:
+telnet-0.17-64.el7.x86_64.rpm                                                                  |  64 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Instalando    : 1:telnet-0.17-64.el7.x86_64                                                                     1/1 
+  Comprobando   : 1:telnet-0.17-64.el7.x86_64                                                                     1/1 
+
+Instalado:
+  telnet.x86_64 1:0.17-64.el7                                                                                         
+
+¡Listo!
+[fintecheando@localhost ~]$ telnet localhost 8443
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+
 ```
