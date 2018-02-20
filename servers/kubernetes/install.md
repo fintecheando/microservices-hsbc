@@ -264,6 +264,25 @@ For more examples and ideas, visit:
 Reference from https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
 
 ```bash
+[fintecheando@localhost ~]$ docker network inspect -f "{{range .IPAM.Config }}{{ .Subnet }}{{end}}" bridge
+172.17.0.0/16
+[fintecheando@localhost ~]$ firewall-cmd --permanent --new-zone dockerc
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+[fintecheando@localhost ~]$ sudo -i
+[root@localhost ~]# firewall-cmd --permanent --new-zone dockerc
+success
+[root@localhost ~]# firewall-cmd --permanent --zone dockerc --add-source 172.17.0.0/16
+success
+[root@localhost ~]# firewall-cmd --permanent --zone dockerc --add-port 8443/tcp
+success
+[root@localhost ~]# firewall-cmd --permanent --zone dockerc --add-port 53/udp
+success
+[root@localhost ~]# firewall-cmd --permanent --zone dockerc --add-port 8053/udp
+success
+[root@localhost ~]# firewall-cmd --reload
+success
+[root@localhost ~]# exit
 [fintecheando@localhost ~]$ sudo yum install wget
 Complementos cargados:fastestmirror
 Loading mirror speeds from cached hostfile
@@ -372,8 +391,6 @@ You are logged in as:
 To login as administrator:
     oc login -u system:admin
 
-[fintecheando@localhost ~]$ telnet localhost 8443
--bash: telnet: no se encontró la orden
 [fintecheando@localhost ~]$ sudo yum install telnet
 [sudo] password for fintecheando: 
 Complementos cargados:fastestmirror
