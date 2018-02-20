@@ -16,6 +16,31 @@ This example is based on the environment like follows.
 +------------------------------+      +--------------------------+      +--------------------------+
 ```
  	
+Add in each node the FQDN 	
+```bash 	
+[origin@kmaster ~]$ cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.188.133 kmaster.mx.fintecheando
+192.168.188.131 kn01.mx.fintecheando
+192.168.188.130 kn02.mx.fintecheando
+``` 	
+Set the hostname in each server
+
+Master Node
+
+```bash
+[root@kmaster ~]# hostnamectl set-hostname kmaster.mx.fintecheando --static
+``` 	
+Compute Node 1
+```bash
+[root@kn01 ~]# hostnamectl set-hostname kn01.mx.fintecheando --static
+``` 	
+Compute Node 2
+```bash
+[root@kn02 ~]# hostnamectl set-hostname kn02.mx.fintecheando --static
+``` 	
+ 	
 There are some System requirements to configure cluster.
   * Master node has up to 16G memory.
   * On all nodes, free space on physical volume is required to create a new volume group for Docker Direct LVM.
