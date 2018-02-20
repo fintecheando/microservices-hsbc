@@ -5,6 +5,8 @@ Reference from this page https://www.server-world.info/en/note?os=CentOS_7&p=ope
 
 Install OpenShift Origin which is the Open Source version of Red Hat OpenShift.
 This example is based on the environment like follows.
+
+```bash
            +-------------------------------------+---------------------------------+
            |192.168.188.133                      |192.168.188.131                  |192.168.188.130
 +----------+-------------------+      +----------+---------------+      +----------+---------------+
@@ -12,7 +14,7 @@ This example is based on the environment like follows.
 |     (Master Node)            |      |    (Compute Node)        |      |    (Compute Node)        |
 |     (Compute Node)           |      |                          |      |                          |
 +------------------------------+      +--------------------------+      +--------------------------+
-
+```
  	
 There are some System requirements to configure cluster.
   * Master node has up to 16G memory.
@@ -28,7 +30,6 @@ There are some System requirements to configure cluster.
 # if Firewalld is running, allow SSH
 [root@kmaster ~]# firewall-cmd --add-service=ssh --permanent 
 [root@kmaster ~]# firewall-cmd --reload 
-
 ```
 
 [2]	On All Nodes, install OpenShift Origin 3.6 repository and Docker.
@@ -36,12 +37,12 @@ Next, create a volume group for Docker Direct LVM to setup LVM Thinpool like fol
 Reference from this page https://docs.docker.com/storage/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production
 Reference from this page https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
 ```bash
-[root@dlp ~]# yum -y install centos-release-openshift-origin36 docker
-[root@dlp ~]# vgcreate centos /dev/sda2
+[root@kmaster ~]# yum -y install centos-release-openshift-origin36 docker
+[root@kmaster ~]# vgcreate centos /dev/sda2
 Volume group "centos" successfully created
-[root@dlp ~]# echo VG=centos >> /etc/sysconfig/docker-storage-setup 
-[root@dlp ~]# systemctl start docker 
-[root@dlp ~]# systemctl enable docker 
+[root@kmaster ~]# echo VG=centos >> /etc/sysconfig/docker-storage-setup 
+[root@kmaster ~]# systemctl start docker 
+[root@kmaster ~]# systemctl enable docker 
 ```
 
 
