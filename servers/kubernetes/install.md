@@ -1,4 +1,6 @@
-# From this page https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
+# 1. Install Docker Stable 
+
+Reference from this page https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
 
 ```bash
 fintecheando@localhost ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -251,7 +253,9 @@ For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
 ``` 
  
-# From https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
+# 2 Install OpenShift Origin
+
+Reference from https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
 
 ```bash
 [fintecheando@localhost ~]$ wget https://github.com/openshift/origin/releases
