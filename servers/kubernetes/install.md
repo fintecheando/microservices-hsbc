@@ -135,3 +135,62 @@ kmaster.mx.fintecheando   Ready     1h        v1.6.1+5115d708d7   beta.kubernete
 kn01.mx.fintecheando      Ready     1h        v1.6.1+5115d708d7   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=kn01.mx.fintecheando,region=primary,zone=chapultepec
 kn02.mx.fintecheando      Ready     1h        v1.6.1+5115d708d7   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=kn02.mx.fintecheando,region=primary,zone=toluca
 ```
+
+[NOTES]	FYI
+
+```bash
+[origin@kmaster ~]$ sudo docker info
+Containers: 4
+ Running: 4
+ Paused: 0
+ Stopped: 0
+Images: 4
+Server Version: 1.12.6
+Storage Driver: devicemapper
+ Pool Name: centos-docker--pool
+ Pool Blocksize: 524.3 kB
+ Base Device Size: 10.74 GB
+ Backing Filesystem: xfs
+ Data file: 
+ Metadata file: 
+ Data Space Used: 2.155 GB
+ Data Space Total: 3.095 GB
+ Data Space Available: 940.6 MB
+ Metadata Space Used: 430.1 kB
+ Metadata Space Total: 16.78 MB
+ Metadata Space Available: 16.35 MB
+ Thin Pool Minimum Free Space: 309.3 MB
+ Udev Sync Supported: true
+ Deferred Removal Enabled: true
+ Deferred Deletion Enabled: true
+ Deferred Deleted Device Count: 0
+ Library Version: 1.02.140-RHEL7 (2017-05-03)
+Logging Driver: journald
+Cgroup Driver: systemd
+Plugins:
+ Volume: local
+ Network: overlay null host bridge
+Swarm: inactive
+Runtimes: docker-runc runc
+Default Runtime: docker-runc
+Security Options: seccomp selinux
+Kernel Version: 3.10.0-693.17.1.el7.x86_64
+Operating System: CentOS Linux 7 (Core)
+OSType: linux
+Architecture: x86_64
+Number of Docker Hooks: 3
+CPUs: 2
+Total Memory: 2.73 GiB
+Name: kmaster.mx.fintecheando
+ID: SQAA:XZRA:HFLK:B7AI:TWN4:WKLK:YZ3T:CYX7:BOMN:SNVE:JQZL:DCBT
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+WARNING: bridge-nf-call-iptables is disabled
+WARNING: bridge-nf-call-ip6tables is disabled
+Insecure Registries:
+ 172.30.0.0/16
+ 127.0.0.0/8
+Registries: docker.io (secure)
+```
