@@ -15,7 +15,11 @@ This example is based on the environment like follows.
 |     (Compute Node)           |      |                          |      |                          |
 +------------------------------+      +--------------------------+      +--------------------------+
 ```
- 	
+
+There are some System requirements to configure cluster.
+  * Master node has up to 16G memory.
+  * On all nodes, free space on physical volume is required to create a new volume group for Docker Direct LVM.
+   	
 Add in each node the FQDN 	
 ```bash 	
 [origin@kmaster ~]$ cat /etc/hosts
@@ -40,10 +44,8 @@ Compute Node 2
 ```bash
 [root@kn02 ~]# hostnamectl set-hostname kn02.mx.fintecheando --static
 ``` 	
- 	
-There are some System requirements to configure cluster.
-  * Master node has up to 16G memory.
-  * On all nodes, free space on physical volume is required to create a new volume group for Docker Direct LVM.
+
+
 
 # [1]	On All Nodes, Create a user for installation to be used in Ansible and also grant root privileges to him.
   
