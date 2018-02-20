@@ -1,6 +1,4 @@
-From this page
-
-https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
+# From this page https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
 
 ```bash
 fintecheando@localhost ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -251,7 +249,11 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
+``` 
+ 
+# From https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
 
+```bash
 [fintecheando@localhost ~]$ wget https://github.com/openshift/origin/releases
 -bash: wget: no se encontró la orden
 [fintecheando@localhost ~]$ sudo yum install wget
@@ -310,5 +312,26 @@ Grabando a: “openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.
 
 2018-02-19 18:48:09 (1.00 MB/s) - “openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.tar.gz” guardado [43775984/43775984]
 
-[fintecheando@localhost ~]$ 
+[fintecheando@localhost ~]$ pwd
+/home/fintecheando
+[fintecheando@localhost ~]$ ls
+openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit
+openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.tar.gz
+[fintecheando@localhost ~]$ mv openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit openshift-origin
+[fintecheando@localhost ~]$ ls -lrt
+total 42752
+-rw-rw-r--. 1 fintecheando fintecheando 43775984 feb  7 17:47 openshift-origin-client-tools-v3.9.0-alpha.3-78ddc10-linux-64bit.tar.gz
+drwxrwxr-x. 2 fintecheando fintecheando       48 feb 19 18:51 openshift-origin
+[fintecheando@localhost ~]$ cd openshift-origin
+[fintecheando@localhost openshift-origin]$ ls
+LICENSE  oc  README.md
+[fintecheando@localhost openshift-origin]$ ls -la
+total 210712
+drwxrwxr-x. 2 fintecheando fintecheando        48 feb 19 18:51 .
+drwx------. 3 fintecheando fintecheando       186 feb 19 19:00 ..
+-rw-r--r--. 1 fintecheando fintecheando     10759 ene 17 15:30 LICENSE
+-rwxr-xr-x. 1 fintecheando fintecheando 215733952 ene 17 15:30 oc
+-rw-r--r--. 1 fintecheando fintecheando     17723 ene 17 15:30 README.md
+[fintecheando@localhost openshift-origin]$ ./oc cluster up
+
 ```
