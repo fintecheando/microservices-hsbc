@@ -251,6 +251,12 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
+ 
+[fintecheando@localhost openshift-origin]$ vi /etc/docker/daemon.json
+[fintecheando@localhost openshift-origin]$ sudo vi /etc/docker/daemon.json
+[sudo] password for fintecheando: 
+[fintecheando@localhost openshift-origin]$ sudo systemctl daemon-reload
+[fintecheando@localhost openshift-origin]$ sudo systemctl restart docker
 ``` 
  
 # 2 Install OpenShift Origin
@@ -258,8 +264,6 @@ For more examples and ideas, visit:
 Reference from https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#overview
 
 ```bash
-[fintecheando@localhost ~]$ wget https://github.com/openshift/origin/releases
--bash: wget: no se encontró la orden
 [fintecheando@localhost ~]$ sudo yum install wget
 Complementos cargados:fastestmirror
 Loading mirror speeds from cached hostfile
@@ -337,5 +341,19 @@ drwx------. 3 fintecheando fintecheando       186 feb 19 19:00 ..
 -rwxr-xr-x. 1 fintecheando fintecheando 215733952 ene 17 15:30 oc
 -rw-r--r--. 1 fintecheando fintecheando     17723 ene 17 15:30 README.md
 [fintecheando@localhost openshift-origin]$ ./oc cluster up
+[fintecheando@localhost openshift-origin]$ ./oc cluster up
+Starting OpenShift using openshift/origin:v3.9.0-alpha.3 ...
+OpenShift server started.
 
+The server is accessible via web console at:
+    https://127.0.0.1:8443
+
+You are logged in as:
+    User:     developer
+    Password: <any value>
+
+To login as administrator:
+    oc login -u system:admin
+
+[fintecheando@localhost openshift-origin]$ 
 ```
