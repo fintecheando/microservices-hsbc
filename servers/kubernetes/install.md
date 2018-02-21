@@ -4,6 +4,7 @@ Reference from this page https://www.server-world.info/en/note?os=CentOS_7&p=ope
 
 
 Install OpenShift Origin which is the Open Source version of Red Hat OpenShift.
+
 This example is based on the environment like follows.
 
 ```bash
@@ -61,8 +62,10 @@ Compute Node 2
 
 [2]	On All Nodes, install OpenShift Origin 3.6 repository and Docker.
 Next, create a volume group for Docker Direct LVM to setup LVM Thinpool like follows.
-Reference from this page https://docs.docker.com/storage/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production
-Reference from this page https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+
+* Reference from this page https://docs.docker.com/storage/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production
+* Reference from this page https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+
 ```bash
 [root@kmaster ~]# yum -y install centos-release-openshift-origin36 docker
 [root@kmaster ~]# vgcreate centos /dev/sda2
@@ -74,6 +77,7 @@ Volume group "centos" successfully created
 
 
 [3]	On Master Node, login with a user created above and set SSH keypair with no pass-phrase
+
 ```bash
 [origin@kmaster ~]$ ssh-keygen -q -N "" 
 Enter file in which to save the key (/home/origin/.ssh/id_rsa):
@@ -102,8 +106,10 @@ and check to make sure that only the key(s) you wanted were added.
 [origin@kmaster ~]$ ssh-copy-id kn02 
 ```
 
-[4]	On Master Node, login with a user created above and run Ansible Playbook for setting up OpenShift Cluster.
-I had to do some trikcs editing the minimum requirements Reference from this file https://github.com/openshift/openshift-ansible/blob/master/roles/openshift_health_checker/openshift_checks/memory_availability.py 
+[4] On Master Node, login with a user created above and run Ansible Playbook for setting up OpenShift Cluster.
+I had to do some trikcs editing the minimum requirements 
+* Reference from this file https://github.com/openshift/openshift-ansible/blob/master/roles/openshift_health_checker/openshift_checks/memory_availability.py 
+
 ```bash
 [origin@kmaster ~]$ sudo vi /etc/ansible/hosts
 # add follows to the end
@@ -163,6 +169,19 @@ kmaster.mx.fintecheando   Ready     1h        v1.6.1+5115d708d7   beta.kubernete
 kn01.mx.fintecheando      Ready     1h        v1.6.1+5115d708d7   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=kn01.mx.fintecheando,region=primary,zone=chapultepec
 kn02.mx.fintecheando      Ready     1h        v1.6.1+5115d708d7   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=kn02.mx.fintecheando,region=primary,zone=toluca
 ```
+[4] Give access to the web UI
+
+```bash
+[root@kmaster origin]# cat /etc/origin/master/.htpasswd
+
+[root@kmaster origin]# htpasswd -c /etc/origin/master/.htpasswd admin
+New password: 
+Re-type new password: 
+Adding password for user admin
+[root@kmaster origin]# oadm policy add-cluster-role-to-user cluster-admin admin
+cluster role “cluster-admin” added: “admin”
+```
+
 
 [NOTES]	FYI
 
@@ -221,15 +240,4 @@ Insecure Registries:
  172.30.0.0/16
  127.0.0.0/8
 Registries: docker.io (secure)
-```
-
-```bash
-[root@kmaster origin]# cat /etc/origin/master/.htpasswd
-
-[root@kmaster origin]# htpasswd -c /etc/origin/master/.htpasswd admin
-New password: 
-Re-type new password: 
-Adding password for user admin
-[root@kmaster origin]# oadm policy add-cluster-role-to-user cluster-admin admin
-cluster role “cluster-admin” added: “admin”
 ```
