@@ -222,3 +222,14 @@ Insecure Registries:
  127.0.0.0/8
 Registries: docker.io (secure)
 ```
+
+```bash
+[root@kmaster origin]# cat /etc/origin/master/.htpasswd
+
+[root@kmaster origin]# htpasswd -c /etc/origin/master/.htpasswd admin
+New password: 
+Re-type new password: 
+Adding password for user admin
+[root@kmaster origin]# oadm policy add-cluster-role-to-user cluster-admin admin
+cluster role “cluster-admin” added: “admin”
+```
